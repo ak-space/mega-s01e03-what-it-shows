@@ -4,11 +4,11 @@
 		<link href="../../_app/immutable/chunks/B2Ul7l_u.js" rel="modulepreload">
 		<link href="../../_app/immutable/chunks/BCPXOG7W.js" rel="modulepreload">
 		<link href="../../_app/immutable/chunks/Dh1V97Jm.js" rel="modulepreload">
-		<link href="../../_app/immutable/entry/app.Cf9iK1ZP.js" rel="modulepreload">
+		<link href="../../_app/immutable/entry/app.mmYRBXWX.js" rel="modulepreload">
 		<link href="../../_app/immutable/nodes/0.C9KfiiPz.js" rel="modulepreload">
 		<link href="../../_app/immutable/chunks/DK3Fl9T5.js" rel="modulepreload">
-		<link href="../../_app/immutable/nodes/5.BPJ70cMH.js" rel="modulepreload">
-		<link href="../../_app/immutable/chunks/CRPhpI1N.js" rel="modulepreload">
+		<link href="../../_app/immutable/nodes/5.C6Xy7HbC.js" rel="modulepreload">
+		<link href="../../_app/immutable/chunks/CblM4RkR.js" rel="modulepreload">
 		<link href="../../_app/immutable/chunks/BTPwLomz.js" rel="modulepreload">
 		<link href="../../_app/immutable/chunks/CVBzP17p.js" rel="modulepreload">
 		<link href="../../_app/immutable/chunks/BIy4WKJS.js" rel="modulepreload">
@@ -24,23 +24,23 @@ in #4471 writes the day first, so “7 April” goes out as “4 July”. The fi
 field, people type month first, and the form reads the value day first. Only form reports from
 booking-v3 tenants. Fixing the parser does not touch it: the hint and the form’s read have to change.</li> <li><strong><code>one-day</code>: the date moves by a day.</strong> Not a swap. “Client in Lisbon got Tuesday. Client in
 Toronto got Monday.” The desk already listed these as <code>oneDayMove</code> in desk-notes; they belong to
-time-zone handling, not to the parser.</li></ul> <h2>Where each one ended</h2> <ul><li><strong>`parser`: fixed.</strong> `fix(dates): parse dd/mm for eu locales`. Ticket closed.</li> <li><strong>`hint`: won’t fix.</strong> booking-v3 form retired, so the hint is gone with it. Ticket closed as not planned.</li> <li><strong>`one-day`: no fix named.</strong> Closed with #4471. A new one-day report reopens it; do not merge it into a
+time-zone handling, not to the parser.</li></ul> <h2>Where each one ended</h2> <ul><li><strong><code>parser</code>: fixed.</strong> <code>fix(dates): parse dd/mm for eu locales</code>. Ticket closed.</li> <li><strong><code>hint</code>: won’t fix.</strong> booking-v3 form retired, so the hint is gone with it. Ticket closed as not planned.</li> <li><strong><code>one-day</code>: no fix named.</strong> Closed with #4471. A new one-day report reopens it; do not merge it into a
 flip ticket.</li></ul> <h2>How this was counted</h2> <ul><li>Every number on this page is computed at render time by <code>#lib/kb/split</code> from the ticket export
 and the tenant directory. Duplicate export rows count once (<code>uniqueById</code>).</li> <li>The cause comes from the tenant: its locale and its booking form (<code>causeOf</code> in <code>#lib/kb/causes</code>).
 Intake’s <code>intakeTag</code> is a guess from the reporter’s browser and is not used.</li> <li><code>one-day</code> comes from the desk’s own <code>oneDayMove</code> list; a full read of the bodies found no others.</li></ul> <h2>For the desk</h2> <ul><li>A big ticket can hold several bugs. Split by cause before you mark it known.</li> <li>The same subject lines (“wrong day on the invite”, “date is wrong”, …) appear in all three problems. Read the body before you merge.</li></ul> <!--[0--><p class="stamp svelte-1280m42">desk ref <b class="svelte-1280m42">DR-7P5C-E9XV</b></p><!--]--><!----><!----></main> <footer class="svelte-e2jw2j">Pages are written by people. Tables and charts are built from data at render time.</footer></div><!--]--><!--]--><!--]--><!----><!--]--><!--]--><!--]--><!----> <!--[-1--><!--]--><!--]-->
 			
 			<script>
 				{
-					__sveltekit_1sydiai = {
+					__sveltekit_nc5fqw = {
 						base: new URL("../..", location).pathname.slice(0, -1),
-						version: "1793203051978"
+						version: "1793203066770"
 					};
 
 					const element = document.currentScript.parentElement;
 
 					import("../../_app/immutable/entry/start.CH5w6lId.js").then(async (kit) => {
-						kit.init(__sveltekit_1sydiai);
-						const app = await import("../../_app/immutable/entry/app.Cf9iK1ZP.js");
+						kit.init(__sveltekit_nc5fqw);
+						const app = await import("../../_app/immutable/entry/app.mmYRBXWX.js");
 						kit.start(app, element, {
 							node_ids: [0, 5],
 							data: [null,null],
