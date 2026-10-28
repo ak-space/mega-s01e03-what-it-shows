@@ -23,7 +23,7 @@ different fixes.
 
 <Callout kind="warn">
 Engineering closed #4471 on 5 October: the parser is fixed, the hint is won't-fix because booking-v3
-is retired. The one-day moves got no fix of their own. If they come back, reopen their ticket.
+is retired. The one-day moves got no fix of their own, so their ticket stays open.
 </Callout>
 
 ## What #4471 holds
@@ -45,8 +45,8 @@ is retired. The one-day moves got no fix of their own. If they come back, reopen
 
 - **`parser`: fixed.** `fix(dates): parse dd/mm for eu locales`. Ticket closed.
 - **`hint`: won't fix.** booking-v3 form retired, so the hint is gone with it. Ticket closed as not planned.
-- **`one-day`: no fix named.** Closed with #4471. A new one-day report reopens it; do not merge it into a
-  flip ticket.
+- **`one-day`: still open.** Neither outcome of #4471 touches a one-day shift. Its ticket stays open
+  until time-zone handling gets its own fix; do not merge new one-day reports into a flip ticket.
 
 ## How this was counted
 
