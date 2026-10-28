@@ -39,5 +39,5 @@ Exported 2026-10-04 from the `support` repo, `apps/kb/` → `src/`.
 
 The kb export with one page added: `src/routes/kb/incidents/4471-split/+page.svx` (logic in
 `src/lib/kb/split.ts`, table in `src/lib/kb/SplitTable.svelte`). `rendered/kb/incidents/4471-split.html`
-is that page as the desk sees it (static build). The issues of this repo are the desk's tickets for
+is that page as the desk sees it (static build). Rebuild it with `npm ci && npm run build`; the output lands in `build/`. The issues of this repo are the desk's tickets for
 the three problems #4471 holds.
