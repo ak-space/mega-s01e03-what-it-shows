@@ -1,0 +1,56 @@
+---
+layout: runbook
+title: '#4471 · three problems, not one'
+owner: support desk
+status: draft
+reviewed: 2026-10-28
+signature: 'v1.eyJzdWIiOiIyMDMxIiwiYXVkIjoiY2hhbGxlbmdlOndoYXQtaXQtc2hvd3MiLCJpYXQiOjE3OTMyMDE3MDMsImV4cCI6MTc5MzI4ODEwM30.HQ_09WILpU2zuF3o_2pMlXwwp1bbUbSnDciBwtt6RWo'
+---
+
+<script>
+  import SplitTable from '#lib/kb/SplitTable.svelte';
+  import Callout from '#lib/kb/Callout.svelte';
+  import RenderStamp from '#lib/kb/RenderStamp.svelte';
+
+  const repo = 'https://github.com/ak-space/mega-s01e03-what-it-shows/issues';
+  const tickets = { parser: repo + '/1', hint: repo + '/2', 'one-day': repo + '/3' };
+</script>
+
+[#4471](/kb/incidents/4471) says one issue, one fix queued. Its reports say otherwise. They were
+merged by subject line ([decision 0001](/kb/decisions/0001-dedupe-by-subject)), so nobody read the
+bodies. Read by tenant, form and what the body says, they split into three problems with three
+different fixes.
+
+<Callout kind="warn">
+The parser fix queued for #4471 closes only the first row. The other two stay open.
+</Callout>
+
+## What #4471 holds
+
+<SplitTable ticket={4471} {tickets} />
+
+## The three problems
+
+- **`parser`: day and month swap.** The shared parser reads every date month first. Every tenant
+  in #4471 writes the day first, so "7 April" goes out as "4 July". The fix queued for #4471.
+- **`hint`: the form tells people to type it wrong.** booking-v3 prints `MM/DD/YYYY` under its date
+  field, people type month first, and the form reads the value day first. Only form reports from
+  booking-v3 tenants. Fixing the parser does not touch it: the hint and the form's read have to change.
+- **`one-day`: the date moves by a day.** Not a swap. "Client in Lisbon got Tuesday. Client in
+  Toronto got Monday." The desk already listed these as `oneDayMove` in desk-notes; they belong to
+  time-zone handling, not to the parser.
+
+## How this was counted
+
+- Every number on this page is computed at render time by `#lib/kb/split` from the ticket export
+  and the tenant directory. Duplicate export rows count once (`uniqueById`).
+- The cause comes from the tenant: its locale and its booking form (`causeOf` in `#lib/kb/causes`).
+  Intake's `intakeTag` is a guess from the reporter's browser and is not used.
+- `one-day` comes from the desk's own `oneDayMove` list; a full read of the bodies found no others.
+
+## For the desk
+
+- Do not close #4471 when the parser fix ships. Split it into the three tickets above.
+- The same subject lines ("wrong day on the invite", "date is wrong", …) appear in all three problems. Read the body before you merge.
+
+<RenderStamp {signature} />
